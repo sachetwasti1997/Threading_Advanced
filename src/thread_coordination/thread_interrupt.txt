@@ -1,0 +1,14 @@
+Setting the Interrupt Flag: Calling interrupt() doesn't forcibly stop the thread.
+                            Instead, it sets the thread's interrupt flag to indicate that it's been
+                            requested to stop. It's up to the thread to check its interrupted status
+                            and decide how to respond.
+Handling Interruption: Threads can check if they've been interrupted using methods like Thread.interrupted()
+                        or isInterrupted(). This allows the thread to respond appropriately, like cleaning up
+                        resources, gracefully exiting, or handling the interruption based on the application's
+                        logic.
+Interruptible Operations: Some operations, like sleep(), wait(), or join() can throw an InterruptedException
+                        if the thread is interrupted during their execution. This allows these methods to
+                        respond to interruption by throwing an exception.
+Responsibility of Thread: The interrupt mechanism is a cooperative mechanism. It's the responsibility of the
+                          thread to check for interruptions and decide how to handle them. It's not a forceful
+                          termination mechanism.
